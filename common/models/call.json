@@ -8,15 +8,18 @@
   "properties": {
     "date": {
       "type": "date"
+    },
+    "location": {
+      "type": "string"
+    },
+    "recipients": {
+      "type": [
+        "number"
+      ]
     }
   },
   "validations": [],
   "relations": {
-    "youth": {
-      "type": "hasOne",
-      "model": "Youth",
-      "foreignKey": ""
-    },
     "providers": {
       "type": "hasMany",
       "model": "Provider",
