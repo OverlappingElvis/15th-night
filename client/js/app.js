@@ -2,7 +2,8 @@ angular.module('fifteenAppControllers', []);
 angular.module('fifteenApp', [
 		'ui.router',
 		'lbServices',
-		'fifteenAppControllers'
+		'fifteenAppControllers',
+		'ui.mask'
 	])
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 		$urlRouterProvider.otherwise('/login');

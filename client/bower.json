@@ -27,7 +27,7 @@
     "angular-resource": "^1.5.0",
     "jquery": "^2.2.0",
     "jquery-ui": "^1.11.4",
-    "angular-datatables": "^0.5.3"
+    "angular-ui-mask": "^1.7.2"
   },
   "overrides": {
     "bootstrap": {
@@ -38,7 +38,7 @@
         "js/collapse.js"
       ]
     },
-    "admin-lte": {
+    "AdminLTE": {
       "main": [
         "dist/css/AdminLTE.css",
         "dist/css/skins/skin-blue.min.css",

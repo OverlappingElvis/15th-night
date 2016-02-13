@@ -17,7 +17,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="provider in providers" ng-click="go('providers.edit', provider)">
+							<tr ng-repeat="provider in providers" ng-click="go('providers.edit', { id: provider.id })">
 								<td>{{provider.name}}</td>
 								<td>{{provider.category}}</td>
 							</tr>
