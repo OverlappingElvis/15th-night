@@ -1,5 +1,7 @@
 # 15th Night Messenger
 
+Quick start:
+
 ```
 npm install # install server dependencies
 cd client # go to client directory

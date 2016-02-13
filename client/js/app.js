@@ -28,10 +28,22 @@ angular.module('fifteenApp', [
 				templateUrl: 'views/calls.html',
 				authenticate: true
 			})
+			.state('calls.detail', {
+				url: '/:id',
+				controller: 'CallDetailController',
+				templateUrl: 'views/call.detail.html',
+				authenticate: true
+			})
 			.state('providers', {
 				url: '/providers',
 				controller: 'ProvidersController',
 				templateUrl: 'views/providers.html',
+				authenticate: true
+			})
+			.state('providers.edit', {
+				url: '/:id',
+				controller: 'ProviderEditController',
+				templateUrl: 'views/provider.edit.html',
 				authenticate: true
 			});
 	}])

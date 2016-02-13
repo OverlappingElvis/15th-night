@@ -1,0 +1,31 @@
+<section class="content-header">
+	<h1>Providers</h1>
+</section>
+<section class="content">
+	<div class="row">
+		<div ng-class="'providers' | isState ? 'col-md-12' : 'col-md-3'">
+			<div class="box">
+				<div class="box-header">
+					<h3 class="box-title">All Providers</h3>
+				</div>
+				<div class="box-body table-responsive no-padding">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Category</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="provider in providers">
+								<td>{{provider.name}}</td>
+								<td>{{provider.category}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-9" ui-view></div>
+	</div>
+</section>

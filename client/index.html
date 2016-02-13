@@ -45,7 +45,9 @@
 		<script src="js/controllers/logout.js"></script>
 		<script src="js/controllers/dashboard.js"></script>
 		<script src="js/controllers/calls.js"></script>
+		<script src="js/controllers/call.detail.js"></script>
 		<script src="js/controllers/providers.js"></script>
+		<script src="js/controllers/provider.edit.js"></script>
 		<title>15th Night</title>
 	</head>
 	<body ng-class="isState('login') ? 'login-page' : 'skin-blue sidebar-mini'">
@@ -71,7 +73,7 @@
 				<section class="sidebar">
 					<ul class="sidebar-menu">
 						<li><a ui-sref="dashboard">Dashboard</a></li>
-						<li><a ui-sref="calls">Calls</a></li>
+						<li><a ui-sref="calls">Call History</a></li>
 						<li><a ui-sref="providers">Providers</a></li>
 					</ul>
 				</section>
