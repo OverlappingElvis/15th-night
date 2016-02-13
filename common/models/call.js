@@ -1,6 +1,5 @@
 module.exports = function(Call) {
 	var app = require('../../server/server');
-	var _ = require('underscore');
 
 	Call.observe('before save', function(context, next) {
 		if (!context.isNewInstance) {
@@ -11,7 +10,7 @@ module.exports = function(Call) {
 		var recipients = instance.recipients;
 		recipients.each(function(recipientId) {
 			app.models.Provider.findById(recipientId, function(err, provider) {
-				provider.sendMessage(instance.message, _.noop);
+				provider.sendMessage(instance.message, function() {});
 			});
 		});
 		next();
