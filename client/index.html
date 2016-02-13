@@ -14,15 +14,20 @@
 		<script src="bower_components/bootstrap/js/collapse.js"></script>
 		<script src="bower_components/AdminLTE/dist/js/app.js"></script>
 		<script src="bower_components/underscore/underscore.js"></script>
+		<script src="bower_components/angular-resource/angular-resource.js"></script>
 		<!-- endbower -->
 		<script src="js/app.js"></script>
 		<script src="js/services/lb-services.js"></script>
 		<script src="js/services/data-manager.js"></script>
 		<script src="js/controllers/login.js"></script>
+		<script src="js/controllers/logout.js"></script>
 		<script src="js/controllers/dashboard.js"></script>
 		<title>15th Night</title>
 	</head>
-	<body ng-class="className()">
-		<div ng-if="'login' | isState" ui-view></div>
+	<body ng-class="isState('login') ? 'login-page' : 'skin-blue sidebar-mini'">
+		<div ng-if="isState('login')" ui-view></div>
+		<div ng-if="!isState('login')">
+
+		</div>
 	</body>
 </html>
