@@ -10,10 +10,12 @@
       "type": "number"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "category": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "contact_person": {
       "type": "string"
