@@ -12,6 +12,11 @@
       "type": "hasOne",
       "model": "Youth",
       "foreignKey": ""
+    },
+    "providers": {
+      "type": "hasMany",
+      "model": "Provider",
+      "foreignKey": ""
     }
   },
   "acls": [

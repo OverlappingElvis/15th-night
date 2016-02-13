@@ -35,7 +35,7 @@ angular.module('fifteenApp', [
 				authenticate: true
 			});
 	}])
-	.run(['$rootScope', 'DataManager', '$state', function($rootScope, DataManager, $state) {
+	.run(['$rootScope', 'DataManager', '$state', '$timeout', function($rootScope, DataManager, $state, $timeout) {
 		$rootScope.$on('$stateChangeStart', function(e, next) {
 			if (!next.authenticate) {
 				return;
@@ -46,6 +46,11 @@ angular.module('fifteenApp', [
 					delete $rootScope.currentUser;
 					$state.go('login');
 				});
+		});
+		$rootScope.$on('$stateChangeSuccess', function() {
+			$timeout(function() {
+				$.AdminLTE.layout.activate();
+			});
 		});
 		return DataManager.modelMethod('Profile', 'getCurrent')
 			.then(function(profile) {
