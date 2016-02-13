@@ -1,6 +1,8 @@
+angular.module('fifteenAppControllers', []);
 angular.module('fifteenApp', [
 		'ui.router',
-		'lbServices'
+		'lbServices',
+		'fifteenAppControllers'
 	])
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 		$urlRouterProvider.otherwise('/');
@@ -22,6 +24,18 @@ angular.module('fifteenApp', [
 				url: '/dashboard',
 				controller: 'DashboardController',
 				templateUrl: 'views/dashboard.html',
+				authenticate: true
+			})
+			.state('calls', {
+				url: '/calls',
+				controller: 'CallsController',
+				templateUrl: 'views/calls.html',
+				authenticate: true
+			})
+			.state('providers', {
+				url: '/providers',
+				controller: 'ProvidersController',
+				templateUrl: 'views/providers.html',
 				authenticate: true
 			});
 		$locationProvider.html5Mode(false);

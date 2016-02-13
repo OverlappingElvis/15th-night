@@ -44,7 +44,7 @@
         "dist/js/app.js"
       ]
     },
-    "fontawesome": {
+    "font-awesome": {
       "main": [
         "css/font-awesome.css",
         "fonts/*"

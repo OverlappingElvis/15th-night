@@ -1,4 +1,4 @@
-angular.module('fifteenApp').controller('RootController', ['$rootScope', '$state', function($rootScope, $state) {
+angular.module('fifteenAppControllers').controller('RootController', ['$rootScope', '$state', function($rootScope, $state) {
 	if (_($rootScope.currentUser).isEmpty()) {
 		$state.go('login');
 	} else {

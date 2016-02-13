@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="fifteenApp" ng-controller="PageController">
 	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<!-- bower:css -->
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
 		<link rel="stylesheet" href="bower_components/AdminLTE/dist/css/AdminLTE.css" />
+		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
 		<!-- endbower -->
 		<!-- bower:js -->
 		<script src="bower_components/angular/angular.js"></script>
@@ -29,8 +33,32 @@
 	</head>
 	<body ng-class="isState('login') ? 'login-page' : 'skin-blue sidebar-mini'">
 		<div ng-if="isState('login')" ui-view></div>
-		<div ng-if="!isState('login')">
-
+		<div class="wrapper" ng-if="!isState('login')">
+			<header class="main-header">
+				<a ui-sref="dashboard" class="logo">
+					<span class="logo-mini">15th</span>
+					<span class="logo-lg">15th Night</span>
+				</a>
+				<nav class="navbar navbar-static-top" role="navigation">
+					<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+						<span class="sr-only">Toggle navigation</span>
+					</a>
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<li><a ui-sref="logout">Sign out</a></li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			<aside class="main-sidebar">
+				<section class="sidebar">
+					<ul class="sidebar-menu">
+						<li><a ui-sref="dashboard">Dashboard</a></li>
+						<li><a ui-sref="calls">Calls</a></li>
+						<li><a ui-sref="providers">Providers</a></li>
+					</ul>
+				</section>
+			</aside>
 		</div>
 	</body>
 </html>

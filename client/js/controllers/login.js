@@ -1,4 +1,4 @@
-angular.module('fifteenApp').controller('LoginController', ['$scope', '$rootScope', 'DataManager', '$state', function($scope, $rootScope, DataManager, $state) {
+angular.module('fifteenAppControllers').controller('LoginController', ['$scope', '$rootScope', 'DataManager', '$state', function($scope, $rootScope, DataManager, $state) {
 	$scope.status = {};
 	var error = function() {
 		$scope.status.error = true;
