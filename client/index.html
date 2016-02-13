@@ -22,7 +22,7 @@
 		<script src="js/controllers/dashboard.js"></script>
 		<title>15th Night</title>
 	</head>
-	<body>
-		<div ui-view></div>
+	<body ng-class="className()">
+		<div ng-if="'login' | isState" ui-view></div>
 	</body>
 </html>

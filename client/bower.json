@@ -22,7 +22,8 @@
     "angular-ui-router": "^0.2.18",
     "bootstrap": "^3.3.6",
     "AdminLTE": "admin-lte#^2.3.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "font-awesome": "fontawesome#^4.5.0"
   },
   "overrides": {
     "bootstrap": {
@@ -38,6 +39,12 @@
         "dist/css/AdminLTE.css",
         "dist/css/skins/skin-blue.min.css",
         "dist/js/app.js"
+      ]
+    },
+    "fontawesome": {
+      "main": [
+        "css/font-awesome.css",
+        "fonts/*"
       ]
     }
   }
