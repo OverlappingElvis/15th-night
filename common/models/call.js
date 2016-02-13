@@ -1,6 +1,5 @@
 module.exports = function(Call) {
 	var app = require('../../server/server');
-	var http = require('http');
 	var _ = require('underscore');
 
 	Call.observe('before save', function(context, next) {

@@ -1,5 +1,5 @@
 module.exports = function(Provider) {
-	var http = require('http');]
+	var http = require('http');
 	// Untracked tokens file
 	var tokens = require('../../server/tokens');
 	Provider.prototype.sendMessage = function(message, next) {
