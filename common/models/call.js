@@ -1,6 +1,6 @@
 module.exports = function(Call) {
 	var app = require('../../server/server');
-	var request = require('http');
+	var http = require('http');
 	// Untracked tokens file
 	var tokens = require('../../server/tokens');
 
@@ -18,6 +18,19 @@ module.exports = function(Call) {
 				}
 				var number = provider.phone;
 				var message = encodeURI(instance.message);
+				var path = '/1.0/sessions?action=create&token=' + tokens.tropo.messaging + '&msg=' + message + '&number=' + number;
+				var tropoSessionAPI = 'api.tropo.com';
+				var tropo = http.createClient(80, tropoSessionAPI);
+				var request = tropo.request('GET', path, {'host': tropoSessionAPI});
+				var request = tropo.request('GET', path, {'host': tropoSessionAPI});
+				request.end();
+				request.on('response', function (response) {
+					response.setEncoding('utf8');
+					response.addListener('data', function (chunk) {
+						console.log('Sent message. Tropo response code:' + response.statusCode + '. Body: ' + chunk);
+					});
+				});
+
 			});
 		});
 		next();
