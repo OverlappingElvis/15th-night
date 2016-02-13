@@ -8,7 +8,7 @@ module.exports = function(app) {
 		if (err) {
 			throw err;
 		}
-		console.log('Created ' + profiles.length + ' profiles');
+		console.log('Created ' + (profiles.length || 1) + ' profiles');
 	});
 
 	// Import providers
