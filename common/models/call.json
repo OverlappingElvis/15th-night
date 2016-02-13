@@ -16,15 +16,13 @@
       "type": [
         "number"
       ]
+    },
+    "message": {
+      "type": "string"
     }
   },
   "validations": [],
   "relations": {
-    "providers": {
-      "type": "hasMany",
-      "model": "Provider",
-      "foreignKey": ""
-    }
   },
   "acls": [
     {

@@ -1,6 +1,7 @@
-angular.module('fifteenAppControllers').controller('CallsController', ['$scope', 'DataManager', function($scope, DataManager) {
+angular.module('fifteenAppControllers').controller('CallsController', ['$scope', 'DataManager', '$state', function($scope, DataManager, $state) {
+	$scope.go = $state.go;
 	DataManager.fetchAll('Call')
-		.then(function(providers) {
-			$scope.providers = providers;
+		.then(function(calls) {
+			$scope.calls = calls;
 		});
 }]);

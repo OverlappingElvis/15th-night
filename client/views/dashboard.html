@@ -11,19 +11,20 @@
 				<div class="callout callout-info">
 					<h4>Message Preview</h4>
 					<p>{{messagePreview()}}</p>
+					<p ng-if="recipientNames().length">Sending to {{recipientNames()}}
 				</div>
 				<div class="form-group">
-					<label class="col-sm-4">Categories</label>
+					<label class="col-sm-4">Message ({{128 - call.message.length}} characters remaining)</label>
 					<div class="col-sm-8">
-						<select class="form-control" ng-model="call.categories" multiple>
-							<option ng-repeat="category in providerCategories" value="category">{{category}}</option>
-						</select>
+						<textarea ng-model="call.message" ng-maxlength="128" class="form-control"></textarea>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-4">Message</label>
+					<label class="col-sm-4">Recipients</label>
 					<div class="col-sm-8">
-						<textarea ng-model="call.message" ng-maxlength="128" class="form-control"></textarea>
+						<select class="form-control" ng-model="call.categories" multiple>
+							<option ng-repeat="category in providerCategories" value="{{category}}">{{category}}</option>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">

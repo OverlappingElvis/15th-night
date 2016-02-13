@@ -3,7 +3,7 @@
 </section>
 <section class="content">
 	<div class="row">
-		<div ng-class="('calls' | isState) ? 'col-md-12' : 'col-md-3'">
+		<div ng-class="('calls' | isState) ? 'col-md-12' : 'col-md-4'">
 			<div class="box">
 				<div class="box-header">
 					<h3 class="box-title">All Calls</h3>
@@ -13,19 +13,19 @@
 						<thead>
 							<tr>
 								<th>Call Date</th>
-								<th>Call Description</th>
+								<th>Call Message</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="call in calls" ng-click="go('call.detail', call)">
-								<td>{{call.date}}</td>
-								<td>{{call.shortDescription}}</td>
+							<tr ng-repeat="call in calls" ng-click="go('calls.detail', { id: call.id })">
+								<td>{{call.date | date:'medium'}}</td>
+								<td>{{call.message}}</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-9" ui-view></div>
+		<div class="col-md-8" ui-view></div>
 	</div>
 </section>
