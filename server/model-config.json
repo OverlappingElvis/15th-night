@@ -14,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "db",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "db",
@@ -41,6 +42,10 @@
     "public": true
   },
   "Youth": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Call": {
     "dataSource": "db",
     "public": true
   }
