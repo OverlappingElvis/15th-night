@@ -55,6 +55,7 @@ angular.module('fifteenAppControllers').controller('DashboardController', ['$sco
 			$scope.providers = providers;
 			$scope.providerCategories = _(providers).chain()
 				.pluck('category')
+				.compact()
 				.map(function(categories) {
 					return categories.split(',');
 				})

@@ -6,10 +6,20 @@ angular.module('fifteenAppControllers').controller('ProviderEditController', ['$
 				$scope.provider = provider;
 			});
 	};
-	$scope.
 	$scope.save = function() {
-		DataManager.updateOne('Provider', providerId, $scope.provider)
+		var provider = $scope.provider;
+		if (!providerId) {
+			return DataManager.create('Provider', provider)
+				.then(function(provider) {
+					$state.go('providers.edit', {
+						id: provider.id
+					})
+				});
+		}
+		return DataManager.updateOne('Provider', providerId, provider)
 			.then(fetchProvider)
 	};
-	fetchProvider();
+	if (providerId) {
+		fetchProvider();
+	}
 }]);

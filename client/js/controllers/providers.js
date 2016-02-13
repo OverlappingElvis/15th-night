@@ -3,11 +3,16 @@ angular.module('fifteenAppControllers').controller('ProvidersController', ['$sco
 
 	DataManager.fetchAll('Provider')
 		.then(function(providers) {
-			$scope.providers = _(providers).map(function(provider) {
-				return {
-					name: provider.name,
-					category: provider.category.split(',').sort().join(', ')
-				};
-			});
+			$scope.providers = _(providers).chain()
+				.filter(function(provider) {
+					return !!provider.category;
+				})
+				.map(function(provider) {
+					return {
+						name: provider.name,
+						category: provider.category.split(',').sort().join(', ')
+					};
+				})
+				.value();
 		});
 }]);
