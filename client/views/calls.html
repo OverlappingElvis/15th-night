@@ -17,9 +17,9 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="call in calls">
+							<tr ng-repeat="call in calls" ng-click="go('call.detail', call)">
 								<td>{{call.date}}</td>
-								<td>{{call.description}}</td>
+								<td>{{call.shortDescription}}</td>
 							</tr>
 						</tbody>
 					</table>

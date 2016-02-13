@@ -1,5 +1,5 @@
 angular.module('fifteenApp')
-	.factory('DataManager', ['Profile', 'Provider', 'Youth', function(Profile, Provider, Youth) {
+	.factory('DataManager', ['Profile', 'Provider', 'Call', function(Profile, Provider, Call) {
 		var models = _(arguments).chain()
 			.filter(function(arg) {
 				return !!arg.modelName;
