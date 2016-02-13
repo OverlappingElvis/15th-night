@@ -17,7 +17,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="call in calls" ng-click="go('calls.detail', { id: call.id })">
+							<tr ng-repeat="call in calls" ui-sref="calls.detail({ id: call.id })">
 								<td>{{call.date | date:'medium'}}</td>
 								<td>{{call.message}}</td>
 							</tr>

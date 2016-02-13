@@ -30,7 +30,7 @@ angular.module('fifteenApp', [
 				authenticate: true
 			})
 			.state('calls.detail', {
-				url: '/:id',
+				url: '/detail/:id',
 				controller: 'CallDetailController',
 				templateUrl: 'views/call.detail.html',
 				authenticate: true
@@ -42,7 +42,7 @@ angular.module('fifteenApp', [
 				authenticate: true
 			})
 			.state('providers.edit', {
-				url: '/:id',
+				url: '/edit/:id',
 				controller: 'ProviderEditController',
 				templateUrl: 'views/provider.edit.html',
 				authenticate: true
