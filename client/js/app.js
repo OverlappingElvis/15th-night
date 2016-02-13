@@ -4,7 +4,12 @@ angular.module('fifteenApp', [
 	])
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 		$urlRouterProvider.otherwise('/');
-		$stateProvider.state('login', {
+		$stateProvider
+			.state('root', {
+				url: '/',
+				controller: 'RootController'
+			})
+			.state('login', {
 				url: '/login',
 				controller: 'LoginController',
 				templateUrl: 'views/login.html'
