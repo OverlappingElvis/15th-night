@@ -1,18 +1,11 @@
 {
-  "name": "Provider",
+  "name": "Youth",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
-  "properties": {
-    "phone": {
-      "type": "number"
-    },
-    "name": {
-      "type": "string"
-    }
-  },
+  "properties": {},
   "validations": [],
   "relations": {},
   "acls": [
