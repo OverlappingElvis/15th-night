@@ -5,12 +5,8 @@ angular.module('fifteenApp', [
 		'fifteenAppControllers'
 	])
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
-		$urlRouterProvider.otherwise('/');
+		$urlRouterProvider.otherwise('/login');
 		$stateProvider
-			.state('root', {
-				url: '/',
-				controller: 'RootController'
-			})
 			.state('login', {
 				url: '/login',
 				controller: 'LoginController',
@@ -38,8 +34,6 @@ angular.module('fifteenApp', [
 				templateUrl: 'views/providers.html',
 				authenticate: true
 			});
-		$locationProvider.html5Mode(false);
-		$locationProvider.hashPrefix('!');
 	}])
 	.run(['$rootScope', 'DataManager', '$state', function($rootScope, DataManager, $state) {
 		$rootScope.$on('$stateChangeStart', function(e, next) {

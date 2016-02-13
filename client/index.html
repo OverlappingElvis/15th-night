@@ -29,6 +29,8 @@
 		<script src="js/controllers/login.js"></script>
 		<script src="js/controllers/logout.js"></script>
 		<script src="js/controllers/dashboard.js"></script>
+		<script src="js/controllers/calls.js"></script>
+		<script src="js/controllers/providers.js"></script>
 		<title>15th Night</title>
 	</head>
 	<body ng-class="isState('login') ? 'login-page' : 'skin-blue sidebar-mini'">
@@ -59,6 +61,7 @@
 					</ul>
 				</section>
 			</aside>
+			<div class="content-wrapper" ui-view></div>
 		</div>
 	</body>
 </html>
