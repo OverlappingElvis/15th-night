@@ -3,13 +3,13 @@
 </section>
 <section class="content">
 	<div class="row">
-		<div ng-class="'providers' | isState ? 'col-md-12' : 'col-md-3'">
+		<div ng-class="('providers' | isState) ? 'col-md-12' : 'col-md-3'">
 			<div class="box">
 				<div class="box-header">
 					<h3 class="box-title">All Providers</h3>
 				</div>
-				<div class="box-body table-responsive no-padding">
-					<table class="table">
+				<div class="box-body table-responsive">
+					<table class="table table-hover" ng-if="providers.length">
 						<thead>
 							<tr>
 								<th>Name</th>
