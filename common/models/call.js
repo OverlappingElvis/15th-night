@@ -6,11 +6,11 @@ module.exports = function(Call) {
 			// Only create new instances
 			return next('cannot update existing instance');
 		}
-		var instance = context.instance;
-		var recipients = instance.recipients;
+		var call = context.instance;
+		var recipients = call.recipients;
 		recipients.forEach(function(recipientId) {
 			app.models.Provider.findById(recipientId, function(err, provider) {
-				provider.sendMessage(instance.message, function() {});
+				provider.sendMessage(call.message, call.reply, function() {});
 			});
 		});
 		next();

@@ -13,7 +13,7 @@ module.exports = function(Provider) {
 			hostname: 'api.tropo.com',
 			port: 80,
 			method: 'GET',
-			path: '/1.0/sessions?action=create&token=' + tokens.tropo[voice ? 'voice' : 'messaging'] + '&msg=' + encodeURI(message) + '&number=' + number + '&reply=' + reply
+			path: '/1.0/sessions?action=create&token=' + tokens.tropo[voice ? 'voice' : 'messaging'] + '&msg=' + message + '&number=' + number + '&reply=' + reply
 		}, function(response) {
 			response.setEncoding('utf8');
 			response.on('data', function (chunk) {
@@ -37,7 +37,7 @@ module.exports = function(Provider) {
 			{
 				arg: 'reply',
 				type: 'number',
-				required: true
+				required: false
 			}
 		]
 	});

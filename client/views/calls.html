@@ -1,6 +1,3 @@
-<section class="content-header">
-	<h1>Call History</h1>
-</section>
 <section class="content">
 	<div class="row">
 		<div ng-class="('calls' | isState) ? 'col-md-12' : 'col-md-4'">
@@ -12,13 +9,13 @@
 					<table class="table table-hover" ng-if="calls.length">
 						<thead>
 							<tr>
-								<th>Call Date</th>
-								<th>Call Message</th>
+								<th>Date Sent</th>
+								<th>Message</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr ng-repeat="call in calls" ui-sref="calls.detail({ id: call.id })">
-								<td>{{call.date | date:'medium'}}</td>
+								<td>{{call.date | date:'short'}}</td>
 								<td>{{call.message}}</td>
 							</tr>
 						</tbody>
