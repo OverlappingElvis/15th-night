@@ -1,4 +1,4 @@
-angular.module('fifteenAppControllers').controller('DashboardController', ['$scope', 'DataManager', '$rootScope', 'Utility', '$state', function($scope, DataManager, $rootScope, Utility, $state) {
+angular.module('fifteenApp').controller('DashboardController', ['$scope', 'DataManager', '$rootScope', 'Utility', '$state', function($scope, DataManager, $rootScope, Utility, $state) {
 
 	var resetCall = $scope.resetCall = function() {
 		$scope.call = {

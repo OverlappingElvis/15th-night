@@ -1,4 +1,4 @@
-angular.module('fifteenAppControllers').controller('ProvidersController', ['$scope', 'DataManager', '$state', function($scope, DataManager, $state) {
+angular.module('fifteenApp').controller('ProvidersController', ['$scope', 'DataManager', '$state', function($scope, DataManager, $state) {
 	DataManager.fetchAll('Provider')
 		.then(function(providers) {
 			$scope.providers = _(providers).chain()

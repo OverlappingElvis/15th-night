@@ -1,4 +1,4 @@
-angular.module('fifteenAppControllers').controller('ProviderEditController', ['$scope', 'DataManager', '$state', '$stateParams', function($scope, DataManager, $state, $stateParams) {
+angular.module('fifteenApp').controller('ProviderEditController', ['$scope', 'DataManager', '$state', '$stateParams', function($scope, DataManager, $state, $stateParams) {
 	var providerId = $stateParams.id;
 
 	$scope.status = {};
