@@ -7,8 +7,10 @@ wait(750);
 say(msg);
 ask('If you would like to be connected to the sender, say connect. Otherwise, you may hang up.', {
 	choices: 'connect',
-	onChoice(function(event) {
+	onChoice: function(event) {
 		say('Connecting you now.')
-		transfer(reply);
-	})
+		transfer(reply, {
+			playvalue: 'http://www.phono.com/audio/holdmusic.mp3'
+		});
+	}
 });
