@@ -9,6 +9,6 @@ ask('If you would like to be connected to the sender, say connect. Otherwise, yo
 	choices: 'connect',
 	onChoice(function(event) {
 		say('Connecting you now.')
-		transfer('reply');
+		transfer(reply);
 	})
 });
