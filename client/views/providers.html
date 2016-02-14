@@ -1,6 +1,3 @@
-<section class="content-header">
-	<h1>Providers</h1>
-</section>
 <section class="content">
 	<div class="row">
 		<div ng-class="('providers' | isState) ? 'col-md-12' : 'col-md-3'">
@@ -18,12 +15,14 @@
 						<thead>
 							<tr>
 								<th>Name</th>
+								<th>Contact Person</th>
 								<th>Category</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="provider in providers" ui-sref="providers.edit({ id: provider.id })">
+							<tr ng-repeat="provider in providers | orderBy:'name'" ui-sref="providers.edit({ id: provider.id })">
 								<td>{{provider.name}}</td>
+								<td>{{provider.contact_person}}</td>
 								<td>{{provider.category}}</td>
 							</tr>
 						</tbody>
