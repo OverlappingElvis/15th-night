@@ -16,6 +16,7 @@ node . # start server
 * Node.js (http://nodejs.org/)
 * Loopback (http://loopback.io/)
 * AngularJS (https://angularjs.org/)
+* Bootstrap/AdminLTE (https://github.com/almasaeed2010/AdminLTE)
 * Tropo (https://www.tropo.com/)
 * npm (https://www.npmjs.com/)
 * Bower (http://bower.io/)

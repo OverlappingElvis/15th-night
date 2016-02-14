@@ -14,7 +14,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="call in calls" ui-sref="calls.detail({ id: call.id })">
+							<tr ng-repeat="call in calls | orderBy:'-date'" ui-sref="calls.detail({ id: call.id })">
 								<td>{{call.date | date:'short'}}</td>
 								<td>{{call.message}}</td>
 							</tr>
