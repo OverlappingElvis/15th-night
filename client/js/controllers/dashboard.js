@@ -20,7 +20,8 @@ angular.module('fifteenAppControllers').controller('DashboardController', ['$sco
 		var call = $scope.call;
 		DataManager.create('Call', {
 			date: moment().format(),
-			message: formatMessage(call),
+			formatted_message: formatMessage(call),
+			message: call.message,
 			location: call.location,
 			reply: call.reply,
 			recipients: Utility.recipientIds(call.categories, $scope.providers)

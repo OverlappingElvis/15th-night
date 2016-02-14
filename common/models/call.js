@@ -10,7 +10,7 @@ module.exports = function(Call) {
 		var recipients = call.recipients;
 		recipients.forEach(function(recipientId) {
 			app.models.Provider.findById(recipientId, function(err, provider) {
-				provider.sendMessage(call.message, call.reply, function() {});
+				provider.sendMessage(call);
 			});
 		});
 		next();

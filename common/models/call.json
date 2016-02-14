@@ -19,6 +19,9 @@
     },
     "reply": {
       "type": "number"
+    },
+    "formatted_message": {
+      "type": "string"
     }
   },
   "validations": [],

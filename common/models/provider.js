@@ -2,18 +2,18 @@ module.exports = function(Provider) {
 	var http = require('http');
 	// Untracked tokens file
 	var tokens = require('../../server/tokens');
-	Provider.prototype.sendMessage = function(message, reply, next) {
+
+	Provider.prototype.sendMessage = function(call) {
 		var number = this.phone;
 		if (!number) {
-			return next();
+			return;
 		}
 		var voice = !!this.voice;
-		console.log(voice);
 		var tropo = http.request({
 			hostname: 'api.tropo.com',
 			port: 80,
 			method: 'GET',
-			path: '/1.0/sessions?action=create&token=' + tokens.tropo[voice ? 'voice' : 'messaging'] + '&msg=' + message + '&number=' + number + '&reply=' + reply
+			path: '/1.0/sessions?action=create&token=' + tokens.tropo[voice ? 'voice' : 'messaging'] + '&msg=' + encodeURI(voice ? call.message : call.formatted_message) + '&number=' + number + '&reply=' + call.reply
 		}, function(response) {
 			response.setEncoding('utf8');
 			response.on('data', function (chunk) {
@@ -21,8 +21,9 @@ module.exports = function(Provider) {
 			});
 		});
 		tropo.end();
-		next();
 	};
+
+	/*
 	Provider.remoteMethod('sendMessage', {
 		isStatic: false,
 		http: {
@@ -30,15 +31,15 @@ module.exports = function(Provider) {
 		},
 		accepts: [
 			{
-				arg: 'message',
-				type: 'string',
+				arg: 'call',
+				type: 'object',
 				required: true
 			},
 			{
 				arg: 'reply',
 				type: 'number',
-				required: false
+				required: true
 			}
 		]
-	});
+	});*/
 };
