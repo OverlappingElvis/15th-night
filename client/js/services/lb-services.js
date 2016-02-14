@@ -146,24 +146,6 @@ module.factory(
           method: "PUT"
         },
 
-        // INTERNAL. Use Profile.providers.findById() instead.
-        "prototype$__findById__providers": {
-          url: urlBase + "/Profiles/:id/providers/:fk",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Profile.providers.destroyById() instead.
-        "prototype$__destroyById__providers": {
-          url: urlBase + "/Profiles/:id/providers/:fk",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Profile.providers.updateById() instead.
-        "prototype$__updateById__providers": {
-          url: urlBase + "/Profiles/:id/providers/:fk",
-          method: "PUT"
-        },
-
         /**
          * @ngdoc method
          * @name lbServices.Profile#prototype$__get__accessTokens
@@ -177,7 +159,7 @@ module.factory(
          *
          *  - `id` – `{*}` - User id
          *
-         *  - `filter` – `{object=}` -
+         *  - `filter` – `{object=}` - 
          *
          * @param {function(Array.<Object>,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -294,35 +276,10 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `count` – `{number=}` -
+         *  - `count` – `{number=}` - 
          */
         "prototype$__count__accessTokens": {
           url: urlBase + "/Profiles/:id/accessTokens/count",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Profile.providers() instead.
-        "prototype$__get__providers": {
-          isArray: true,
-          url: urlBase + "/Profiles/:id/providers",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Profile.providers.create() instead.
-        "prototype$__create__providers": {
-          url: urlBase + "/Profiles/:id/providers",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Profile.providers.destroyAll() instead.
-        "prototype$__delete__providers": {
-          url: urlBase + "/Profiles/:id/providers",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Profile.providers.count() instead.
-        "prototype$__count__providers": {
-          url: urlBase + "/Profiles/:id/providers/count",
           method: "GET"
         },
 
@@ -427,7 +384,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `exists` – `{boolean=}` -
+         *  - `exists` – `{boolean=}` - 
          */
         "exists": {
           url: urlBase + "/Profiles/:id/exists",
@@ -628,7 +585,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `count` – `{number=}` -
+         *  - `count` – `{number=}` - 
          */
         "count": {
           url: urlBase + "/Profiles/count",
@@ -688,7 +645,7 @@ module.factory(
          *
          * @param {Object} postData Request data.
          *
-         *  - `options` – `{object=}` -
+         *  - `options` – `{object=}` - 
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -702,7 +659,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `changes` – `{ReadableStream=}` -
+         *  - `changes` – `{ReadableStream=}` - 
          */
         "createChangeStream": {
           url: urlBase + "/Profiles/change-stream",
@@ -743,9 +700,9 @@ module.factory(
          *
          * The response body contains properties of the AccessToken created on login.
          * Depending on the value of `include` parameter, the body may contain additional properties:
-         *
+         * 
          *   - `user` - `{User}` - Data of the currently logged in user. (`include=user`)
-         *
+         * 
          *
          */
         "login": {
@@ -818,11 +775,11 @@ module.factory(
          *
          * @param {Object=} parameters Request parameters.
          *
-         *  - `uid` – `{string}` -
+         *  - `uid` – `{string}` - 
          *
-         *  - `token` – `{string}` -
+         *  - `token` – `{string}` - 
          *
-         *  - `redirect` – `{string=}` -
+         *  - `redirect` – `{string=}` - 
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1097,269 +1054,6 @@ module.factory(
     */
     R.modelName = "Profile";
 
-    /**
-     * @ngdoc object
-     * @name lbServices.Profile.providers
-     * @header lbServices.Profile.providers
-     * @object
-     * @description
-     *
-     * The object `Profile.providers` groups methods
-     * manipulating `Provider` instances related to `Profile`.
-     *
-     * Call {@link lbServices.Profile#providers Profile.providers()}
-     * to query all related instances.
-     */
-
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Profile#providers
-         * @methodOf lbServices.Profile
-         *
-         * @description
-         *
-         * Queries providers of Profile.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         *  - `filter` – `{object=}` -
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Provider` object.)
-         * </em>
-         */
-        R.providers = function() {
-          var TargetResource = $injector.get("Provider");
-          var action = TargetResource["::get::Profile::providers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Profile.providers#count
-         * @methodOf lbServices.Profile.providers
-         *
-         * @description
-         *
-         * Counts providers of Profile.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `count` – `{number=}` -
-         */
-        R.providers.count = function() {
-          var TargetResource = $injector.get("Provider");
-          var action = TargetResource["::count::Profile::providers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Profile.providers#create
-         * @methodOf lbServices.Profile.providers
-         *
-         * @description
-         *
-         * Creates a new instance in providers of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Provider` object.)
-         * </em>
-         */
-        R.providers.create = function() {
-          var TargetResource = $injector.get("Provider");
-          var action = TargetResource["::create::Profile::providers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Profile.providers#destroyAll
-         * @methodOf lbServices.Profile.providers
-         *
-         * @description
-         *
-         * Deletes all providers of this model.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R.providers.destroyAll = function() {
-          var TargetResource = $injector.get("Provider");
-          var action = TargetResource["::delete::Profile::providers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Profile.providers#destroyById
-         * @methodOf lbServices.Profile.providers
-         *
-         * @description
-         *
-         * Delete a related item by id for providers.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         *  - `fk` – `{*}` - Foreign key for providers
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R.providers.destroyById = function() {
-          var TargetResource = $injector.get("Provider");
-          var action = TargetResource["::destroyById::Profile::providers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Profile.providers#findById
-         * @methodOf lbServices.Profile.providers
-         *
-         * @description
-         *
-         * Find a related item by id for providers.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         *  - `fk` – `{*}` - Foreign key for providers
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Provider` object.)
-         * </em>
-         */
-        R.providers.findById = function() {
-          var TargetResource = $injector.get("Provider");
-          var action = TargetResource["::findById::Profile::providers"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Profile.providers#updateById
-         * @methodOf lbServices.Profile.providers
-         *
-         * @description
-         *
-         * Update a related item by id for providers.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - User id
-         *
-         *  - `fk` – `{*}` - Foreign key for providers
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Provider` object.)
-         * </em>
-         */
-        R.providers.updateById = function() {
-          var TargetResource = $injector.get("Provider");
-          var action = TargetResource["::updateById::Profile::providers"];
-          return action.apply(R, arguments);
-        };
 
     return R;
   }]);
@@ -1490,7 +1184,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `exists` – `{boolean=}` -
+         *  - `exists` – `{boolean=}` - 
          */
         "exists": {
           url: urlBase + "/Providers/:id/exists",
@@ -1691,7 +1385,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `count` – `{number=}` -
+         *  - `count` – `{number=}` - 
          */
         "count": {
           url: urlBase + "/Providers/count",
@@ -1751,7 +1445,7 @@ module.factory(
          *
          * @param {Object} postData Request data.
          *
-         *  - `options` – `{object=}` -
+         *  - `options` – `{object=}` - 
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1765,90 +1459,11 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `changes` – `{ReadableStream=}` -
+         *  - `changes` – `{ReadableStream=}` - 
          */
         "createChangeStream": {
           url: urlBase + "/Providers/change-stream",
           method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Provider#prototype$sendMessage
-         * @methodOf lbServices.Provider
-         *
-         * @description
-         *
-         * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {Object} postData Request data.
-         *
-         *  - `message` – `{string=}` -
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        "prototype$sendMessage": {
-          url: urlBase + "/Providers/:id/sendMessage",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Profile.providers.findById() instead.
-        "::findById::Profile::providers": {
-          url: urlBase + "/Profiles/:id/providers/:fk",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Profile.providers.destroyById() instead.
-        "::destroyById::Profile::providers": {
-          url: urlBase + "/Profiles/:id/providers/:fk",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Profile.providers.updateById() instead.
-        "::updateById::Profile::providers": {
-          url: urlBase + "/Profiles/:id/providers/:fk",
-          method: "PUT"
-        },
-
-        // INTERNAL. Use Profile.providers() instead.
-        "::get::Profile::providers": {
-          isArray: true,
-          url: urlBase + "/Profiles/:id/providers",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Profile.providers.create() instead.
-        "::create::Profile::providers": {
-          url: urlBase + "/Profiles/:id/providers",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Profile.providers.destroyAll() instead.
-        "::delete::Profile::providers": {
-          url: urlBase + "/Profiles/:id/providers",
-          method: "DELETE"
-        },
-
-        // INTERNAL. Use Profile.providers.count() instead.
-        "::count::Profile::providers": {
-          url: urlBase + "/Profiles/:id/providers/count",
-          method: "GET"
         },
       }
     );
@@ -2122,7 +1737,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `exists` – `{boolean=}` -
+         *  - `exists` – `{boolean=}` - 
          */
         "exists": {
           url: urlBase + "/Calls/:id/exists",
@@ -2323,7 +1938,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `count` – `{number=}` -
+         *  - `count` – `{number=}` - 
          */
         "count": {
           url: urlBase + "/Calls/count",
@@ -2383,7 +1998,7 @@ module.factory(
          *
          * @param {Object} postData Request data.
          *
-         *  - `options` – `{object=}` -
+         *  - `options` – `{object=}` - 
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -2397,7 +2012,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `changes` – `{ReadableStream=}` -
+         *  - `changes` – `{ReadableStream=}` - 
          */
         "createChangeStream": {
           url: urlBase + "/Calls/change-stream",
