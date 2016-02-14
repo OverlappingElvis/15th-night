@@ -19,11 +19,13 @@
     },
     "message": {
       "type": "string"
+    },
+    "reply": {
+      "type": "number"
     }
   },
   "validations": [],
-  "relations": {
-  },
+  "relations": {},
   "acls": [
     {
       "accessType": "*",

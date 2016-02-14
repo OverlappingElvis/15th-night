@@ -1,4 +1,4 @@
-angular.module('fifteenAppControllers').controller('DashboardController', ['$scope', 'DataManager', '$rootScope', function($scope, DataManager, $rootScope) {
+angular.module('fifteenAppControllers').controller('DashboardController', ['$scope', 'DataManager', '$rootScope', 'Utility', function($scope, DataManager, $rootScope, Utility) {
 
 	var resetCall = $scope.resetCall = function() {
 		$scope.call = {
@@ -8,18 +8,10 @@ angular.module('fifteenAppControllers').controller('DashboardController', ['$sco
 
 	resetCall();
 
-	var messageText = $scope.messageText = function(message) {
-		var call = $scope.call;
-		var message = call.message;
-		if (!message) {
-			return '';
-		}
-		var reply = call.reply;
-		return '15thNight: ' + message + (reply ? ' CALL ' + reply : '');
-	};
+	var formatMessage = $scope.formatMessage = Utility.formatMessage;
 
 	$scope.charactersLeft = function() {
-		return 160 - messageText($scope.call.message).length;
+		return 160 - formatMessage($scope.call).length;
 	};
 
 	var recipientIds = function(categories) {
@@ -52,8 +44,9 @@ angular.module('fifteenAppControllers').controller('DashboardController', ['$sco
 		var call = $scope.call;
 		DataManager.create('Call', {
 			date: moment().format(),
-			message: messageText(call.message),
+			message: formatMessage(call),
 			location: call.location,
+			reply: call.reply,
 			recipients: recipientIds(call.categories)
 		}).then(resetCall);
 	};

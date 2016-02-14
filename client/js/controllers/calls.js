@@ -1,4 +1,5 @@
-angular.module('fifteenAppControllers').controller('CallsController', ['$scope', 'DataManager', '$state', function($scope, DataManager, $state) {
+angular.module('fifteenAppControllers').controller('CallsController', ['$scope', 'DataManager', 'Utility', function($scope, DataManager, Utility) {
+	$scope.formatMessage = Utility.formatMessage;
 	DataManager.fetchAll('Call')
 		.then(function(calls) {
 			$scope.calls = calls;
