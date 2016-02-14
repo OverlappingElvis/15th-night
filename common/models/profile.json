@@ -7,13 +7,7 @@
   },
   "properties": {},
   "validations": [],
-  "relations": {
-    "providers": {
-      "type": "hasMany",
-      "model": "Provider",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": []
 }

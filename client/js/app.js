@@ -46,6 +46,12 @@ angular.module('fifteenApp', [
 				controller: 'ProviderEditController',
 				templateUrl: 'views/provider.edit.html',
 				authenticate: true
+			})
+			.state('settings', {
+				url: '/settings',
+				controller: 'SettingsController',
+				templateUrl: 'views/settings.html',
+				authenticate: true
 			});
 	}])
 	.run(['$rootScope', 'DataManager', '$state', '$timeout', function($rootScope, DataManager, $state, $timeout) {

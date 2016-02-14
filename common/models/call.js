@@ -8,7 +8,7 @@ module.exports = function(Call) {
 		}
 		var instance = context.instance;
 		var recipients = instance.recipients;
-		recipients.each(function(recipientId) {
+		recipients.forEach(function(recipientId) {
 			app.models.Provider.findById(recipientId, function(err, provider) {
 				provider.sendMessage(instance.message, function() {});
 			});
