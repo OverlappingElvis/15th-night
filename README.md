@@ -9,6 +9,7 @@ npm install # install server dependencies
 cd client # go to client directory
 bower install # install client dependencies
 cd .. # go to project root
+grunt # build client
 node . # start server
 ```
 

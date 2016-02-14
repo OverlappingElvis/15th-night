@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- build:css styles/styles.css -->
 		<!-- bower:css -->
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
@@ -13,6 +14,9 @@
 		<link rel="stylesheet" href="bower_components/select2/select2.css" />
 		<!-- endbower -->
 		<link rel="stylesheet" href="styles/styles.css" />
+		<!-- endbuild -->
+		<!-- endcss -->
+		<!-- build:js js/app.js -->
 		<!-- bower:js -->
 		<script src="bower_components/angular/angular.js"></script>
 		<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -43,7 +47,9 @@
 		<script src="js/controllers/providers.js"></script>
 		<script src="js/controllers/provider.edit.js"></script>
 		<script src="js/controllers/settings.js"></script>
-		<title>15th Night</title>
+		<!-- endbuild -->
+		<!-- endapp -->
+		<title>15th Night Messenger</title>
 	</head>
 	<body ng-class="isState('login') ? 'login-page' : 'skin-green sidebar-mini'">
 		<div ng-if="isState('login')" ui-view></div>

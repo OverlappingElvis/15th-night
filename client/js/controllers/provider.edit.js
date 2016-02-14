@@ -1,7 +1,7 @@
 angular.module('fifteenApp').controller('ProviderEditController', ['$scope', 'DataManager', '$state', '$stateParams', '$uibModal', function($scope, DataManager, $state, $stateParams, $uibModal) {
 	var providerId = $stateParams.id;
 
-	$scope.status = {};
+	$scope.categories = [];
 
 	$scope.save = function() {
 		var provider = $scope.provider;
@@ -15,6 +15,7 @@ angular.module('fifteenApp').controller('ProviderEditController', ['$scope', 'Da
 				});
 		}
 		return DataManager.updateOne('Provider', providerId, provider)
+			.then($scope.$parent.fetchProviders)
 			.then(_($state.go).partial('providers'));
 	};
 
