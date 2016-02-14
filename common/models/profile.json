@@ -5,7 +5,11 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "phone": {
+      "type": "number"
+    }
+  },
   "validations": [],
   "relations": {},
   "acls": [],

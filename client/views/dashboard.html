@@ -6,8 +6,7 @@
 		<form ng-submit="createCall()">
 			<div class="box-body">
 				<div class="callout callout-info">
-					<h4>Text Message Preview</h4>
-					<p>{{formatMessage(call)}}</p>
+					<h4>{{formatMessage(call)}}</h4>
 					<p ng-if="recipientNames().length">Sending to {{recipientNames()}}
 				</div>
 				<div class="form-group clearfix">
