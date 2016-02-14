@@ -28,7 +28,9 @@
     "jquery": "^2.2.0",
     "jquery-ui": "^1.11.4",
     "angular-ui-mask": "^1.7.2",
-    "moment": "^2.11.2"
+    "moment": "^2.11.2",
+    "angular-ui-select3": "ui-select#*",
+    "angular-bootstrap": "^1.1.2"
   },
   "overrides": {
     "bootstrap": {

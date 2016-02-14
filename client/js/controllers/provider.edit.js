@@ -1,13 +1,11 @@
 angular.module('fifteenAppControllers').controller('ProviderEditController', ['$scope', 'DataManager', '$state', '$stateParams', function($scope, DataManager, $state, $stateParams) {
 	var providerId = $stateParams.id;
-	var fetchProvider = function() {
-		return DataManager.fetchOne('Provider', providerId)
-			.then(function(provider) {
-				$scope.provider = provider;
-			});
-	};
+
+	$scope.status = {};
+
 	$scope.save = function() {
 		var provider = $scope.provider;
+		provider.category = $scope.categories.join(',');
 		if (!providerId) {
 			return DataManager.create('Provider', provider)
 				.then(function(provider) {
@@ -19,7 +17,21 @@ angular.module('fifteenAppControllers').controller('ProviderEditController', ['$
 		return DataManager.updateOne('Provider', providerId, provider)
 			.then(_($state.go).partial('providers'));
 	};
+
+	$scope.addCategory = function() {
+
+	};
+
+	$scope.removeCategory = function(category) {
+		$scope.categories = _($scope.categories).without(category);
+	};
+
 	if (providerId) {
-		fetchProvider();
+		DataManager.fetchOne('Provider', providerId)
+			.then(function(provider) {
+				$scope.provider = provider;
+				$scope.categories = provider.category.split(',');
+			});
 	}
+
 }]);

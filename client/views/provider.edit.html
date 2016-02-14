@@ -23,6 +23,12 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label class="col-sm-4 control-label">Categories</label>
+				<div class="col-sm-8">
+					<span class="label label-danger" ng-repeat="category in categories">{{category}} <i class="fa fa-times-circle-o" ng-click="removeCategory(category)"></i></span> <i class="fa fa-plus" ng-click="addCategory()"></i>
+				</div>
+			</div>
+			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 					<div class="checkbox">
 						<label>
