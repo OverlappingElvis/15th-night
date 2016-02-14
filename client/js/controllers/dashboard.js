@@ -1,4 +1,4 @@
-angular.module('fifteenAppControllers').controller('DashboardController', ['$scope', 'DataManager', '$rootScope', 'Utility', function($scope, DataManager, $rootScope, Utility) {
+angular.module('fifteenAppControllers').controller('DashboardController', ['$scope', 'DataManager', '$rootScope', 'Utility', '$state', function($scope, DataManager, $rootScope, Utility, $state) {
 
 	var resetCall = $scope.resetCall = function() {
 		$scope.call = {
@@ -14,31 +14,7 @@ angular.module('fifteenAppControllers').controller('DashboardController', ['$sco
 		return 160 - formatMessage($scope.call).length;
 	};
 
-	var recipientIds = function(categories) {
-		return _(categories).chain()
-			.map(function(category) {
-				return _($scope.providers).chain()
-					.filter(function(provider) {
-						return _(provider.category.split(',')).contains(category)
-					})
-					.pluck('id')
-					.value();
-			})
-			.flatten()
-			.uniq()
-			.value();
-	};
-
-	$scope.recipientNames = function() {
-		return _(recipientIds($scope.call.categories)).chain()
-			.map(function(id) {
-				return _($scope.providers).findWhere({ id: id });
-			})
-			.pluck('name')
-			.value()
-			.sort()
-			.join(', ');
-	};
+	$scope.recipientNames = _(Utility.recipientNames).partial($scope.call.categories, $scope.providers);
 
 	$scope.createCall = function() {
 		var call = $scope.call;
@@ -47,8 +23,12 @@ angular.module('fifteenAppControllers').controller('DashboardController', ['$sco
 			message: formatMessage(call),
 			location: call.location,
 			reply: call.reply,
-			recipients: recipientIds(call.categories)
-		}).then(resetCall);
+			recipients: Utility.recipientIds(call.categories, $scope.providers)
+		}).then(function(call) {
+			$state.go('calls.detail', {
+				id: call.id
+			});
+		});
 	};
 
 	DataManager.fetchAll('Provider')

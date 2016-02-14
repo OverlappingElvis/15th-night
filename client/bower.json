@@ -42,7 +42,7 @@
     "AdminLTE": {
       "main": [
         "dist/css/AdminLTE.css",
-        "dist/css/skins/skin-blue.min.css",
+        "dist/css/skins/skin-green.min.css",
         "dist/js/app.js"
       ]
     },

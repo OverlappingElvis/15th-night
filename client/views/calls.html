@@ -19,7 +19,7 @@
 						<tbody>
 							<tr ng-repeat="call in calls" ui-sref="calls.detail({ id: call.id })">
 								<td>{{call.date | date:'medium'}}</td>
-								<td>{{formatMessage(call)}}</td>
+								<td>{{call.message}}</td>
 							</tr>
 						</tbody>
 					</table>

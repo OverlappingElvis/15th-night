@@ -17,7 +17,7 @@ angular.module('fifteenAppControllers').controller('ProviderEditController', ['$
 				});
 		}
 		return DataManager.updateOne('Provider', providerId, provider)
-			.then(fetchProvider)
+			.then(_($state.go).partial('providers'));
 	};
 	if (providerId) {
 		fetchProvider();

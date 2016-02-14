@@ -1,7 +1,6 @@
-angular.module('fifteenAppControllers').controller('CallDetailController', ['$scope', 'DataManager', '$stateParams', 'Utility', function($scope, DataManager, $stateParams, Utility) {
-	$scope.formatMessage = Utility.formatMessage;
+angular.module('fifteenAppControllers').controller('CallDetailController', ['$scope', 'DataManager', '$stateParams', function($scope, DataManager, $stateParams) {
 	DataManager.fetchOne('Call', $stateParams.id)
 		.then(function(call) {
 			$scope.call = call;
-		})
+		});
 }]);
