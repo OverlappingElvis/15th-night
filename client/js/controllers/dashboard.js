@@ -2,7 +2,7 @@ angular.module('fifteenAppControllers').controller('DashboardController', ['$sco
 
 	var resetCall = $scope.resetCall = function() {
 		$scope.call = {
-			reply: $rootScope.currentUser.phone
+			reply: $scope.profile ? $scope.profile.phone : void(0)
 		};
 	};
 
@@ -31,6 +31,12 @@ angular.module('fifteenAppControllers').controller('DashboardController', ['$sco
 			});
 		});
 	};
+
+	DataManager.modelMethod('Profile', 'getCurrent', { include: 'phone' })
+		.then(function(profile) {
+			$scope.profile = profile;
+		})
+		.then(resetCall);
 
 	DataManager.fetchAll('Provider')
 		.then(function(providers) {
