@@ -1,4 +1,4 @@
-angular.module('fifteenApp').controller('ProviderEditController', ['$scope', 'DataManager', '$state', '$stateParams', function($scope, DataManager, $state, $stateParams) {
+angular.module('fifteenApp').controller('ProviderEditController', ['$scope', 'DataManager', '$state', '$stateParams', '$uibModal', function($scope, DataManager, $state, $stateParams, $uibModal) {
 	var providerId = $stateParams.id;
 
 	$scope.status = {};
@@ -19,7 +19,20 @@ angular.module('fifteenApp').controller('ProviderEditController', ['$scope', 'Da
 	};
 
 	$scope.addCategory = function() {
-
+		var modal = $uibModal.open({
+			animation: true,
+			template: '<div class="modal-header"><h4 class="modal-title">Add Category</h4></div><form ng-submit="save()"><div class="modal-body"><div class="form-group"><label class="col-sm-2 control-label">Name</label><div class="col-sm-10"><input class="form-control" ng-model="category.name" /></div></div></div><div class="modal-footer"><button type="submit" class="btn btn-default">Save</a></div></form>',
+			controller: ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
+				$scope.category = {};
+				$scope.cancel = _($uibModalInstance.dismiss).partial('cancel');
+				$scope.save = function() {
+					$uibModalInstance.close($scope.category.name);
+				};
+			}]
+		});
+		modal.result.then(function(category) {
+			$scope.categories.push(category);
+		});
 	};
 
 	$scope.removeCategory = function(category) {
