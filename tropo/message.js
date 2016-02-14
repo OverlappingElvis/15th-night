@@ -1,1 +1,4 @@
-message(msg, { to:number, network:"SMS" })
+message(msg, {
+	to: number,
+	network: 'SMS'
+});
