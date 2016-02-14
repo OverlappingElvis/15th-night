@@ -3,6 +3,7 @@
 Developed by Jeremy Sher, Hack for a Cause 2016
 
 ## Quick start:
+Create a Profile and any sample data in `server/boot/data-import.js` (untracked)
 
 ```
 npm install # install server dependencies
