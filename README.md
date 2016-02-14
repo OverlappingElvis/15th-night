@@ -19,6 +19,7 @@ node . # start server
 * AngularJS (https://angularjs.org/)
 * Bootstrap/AdminLTE (https://github.com/almasaeed2010/AdminLTE)
 * Tropo (https://www.tropo.com/)
+* Grunt (http://gruntjs.com/)
 * npm (https://www.npmjs.com/)
 * Bower (http://bower.io/)
 * Wiredep (https://github.com/taptapship/wiredep)
