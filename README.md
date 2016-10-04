@@ -2,6 +2,8 @@
 
 Developed by Jeremy Sher, Hack for a Cause 2016
 
+Hello, hello!
+
 ## Quick start:
 Create a Profile and any sample data in `server/boot/data-import.js` (untracked)
 
